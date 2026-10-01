@@ -1,36 +1,19 @@
 using UnityEngine;
 
-public class NPCInteraction : MonoBehaviour
+public class NPCInteraction : MonoBehaviour, IInteractable
 {
     [SerializeField] private DialogueManager manager;
     [SerializeField] private DialogueData dialogue;
     [SerializeField] private GameObject InteractionText;
 
-    private bool playerInRange;
-
-    private void Update()
-    {
-        if (playerInRange && Input.GetKeyDown(KeyCode.E))
-        {
-            manager.StartDialogue(dialogue);
-        }
+    public void SetPromptVisible(bool visible)
+    {   
+        InteractionText.SetActive(visible);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void Interact()
     {
-        if (other.CompareTag("Player"))
-        {
-            InteractionText.SetActive(true);
-            playerInRange = true;
-        }
+        manager.StartDialogue(dialogue);
     }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            InteractionText.SetActive(false);
-            playerInRange = false;
-        }
-    }
 }

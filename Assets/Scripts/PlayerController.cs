@@ -28,11 +28,15 @@ public class PlayerController : MonoBehaviour, IGridTrailable
     [Header("Collision (optional)")]
     [SerializeField] private bool checkObstacles = true;
     [SerializeField] private LayerMask obstacleLayer;
-    [SerializeField] private float obstacleCheckRadius = 0.4f;
+    //[SerializeField] private float obstacleCheckRadius = 0.4f;
 
     [Header("Trail History")]
     [Tooltip("How many past tiles to remember. Needs to be at least as many as you have followers.")]
     [SerializeField] private int maxHistoryLength = 4;
+
+    [Header("Interaction")]
+    [SerializeField] private LayerMask interactableLayer;
+    private IInteractable currentInteractable;
 
     public List<Vector3> TileHistory { get; } = new List<Vector3>();
     public bool IsMoving { get; private set; }
@@ -40,6 +44,16 @@ public class PlayerController : MonoBehaviour, IGridTrailable
 
     private Vector3 targetPosition;
     private Vector2 pendingInput;
+
+    private ContactFilter2D obstacleFilter;
+    private readonly Collider2D[] obstacleHits = new Collider2D[4];
+
+    void Awake()
+    {
+        obstacleFilter = new ContactFilter2D();
+        obstacleFilter.SetLayerMask(obstacleLayer);
+        obstacleFilter.useTriggers = false; // triggers no longer block movement
+    }
 
     void Start()
     {
@@ -60,17 +74,47 @@ public class PlayerController : MonoBehaviour, IGridTrailable
             if (pendingInput != Vector2.zero)
                 TryStartMove(pendingInput);
         }
+
+        UpdateInteractable();
+
         if (Input.GetKeyDown(KeyCode.E))
         {
-            //open inventory
-            
+            if (!IsMoving && currentInteractable != null)
+                currentInteractable.Interact();
+            else
+            {
+                // open inventory
+            }
         }
+    }
+
+    private void UpdateInteractable()
+    {
+        IInteractable found = null;
+
+        // Only look for interactables while standing still
+        if (!IsMoving)
+        {
+            Vector3 front = SnapToGrid(transform.position) + (Vector3)(FacingDirection * tileSize);
+            Collider2D hit = Physics2D.OverlapBox(front, Vector2.one * tileSize * 0.5f, 0f, interactableLayer);
+
+            if (hit != null)
+                hit.TryGetComponent(out found);
+        }
+
+        if (found == currentInteractable) return;
+
+        currentInteractable?.SetPromptVisible(false);
+        currentInteractable = found;
+        currentInteractable?.SetPromptVisible(true);
     }
 
     void FixedUpdate()
     {
         if (IsMoving)
             StepMove();
+        if (Input.GetKeyDown(KeyCode.E))
+            TryInteract();
     }
 
     private void ReadInput()
@@ -91,14 +135,23 @@ public class PlayerController : MonoBehaviour, IGridTrailable
     {
         FacingDirection = direction;
 
-        Vector3 destination = transform.position + (Vector3)(direction * tileSize);
+        // Build the destination from a snapped position so errors never accumulate
+        Vector3 start = SnapToGrid(transform.position);
+        Vector3 destination = SnapToGrid(start + (Vector3)(direction * tileSize));
 
-        if (checkObstacles && Physics2D.OverlapCircle(destination, obstacleCheckRadius, obstacleLayer))
-            return; // blocked, stay put (but still faces that direction)
+        if (checkObstacles)
+        {
+            int count = Physics2D.OverlapBox(
+                destination, Vector2.one * tileSize * 0.5f, 0f, obstacleFilter, obstacleHits);
 
-        // Record the tile we're about to leave BEFORE moving, so followers
-        // can move onto it right away.
-        TileHistory.Insert(0, transform.position);
+            if (count > 0)
+            {
+                Debug.Log($"Blocked at {destination} by '{obstacleHits[0].name}', bounds: {obstacleHits[0].bounds}");
+                return; // blocked by a solid collider
+            }
+        }
+
+        TileHistory.Insert(0, start);
         if (TileHistory.Count > maxHistoryLength)
             TileHistory.RemoveAt(TileHistory.Count - 1);
 
@@ -108,18 +161,34 @@ public class PlayerController : MonoBehaviour, IGridTrailable
 
     private void StepMove()
     {
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * tileSize * Time.fixedDeltaTime);
+        transform.position = Vector3.MoveTowards(
+            transform.position, targetPosition, moveSpeed * tileSize * Time.deltaTime);
 
-        if (transform.position == targetPosition)
+        // Vector3 == is approximate, so compare distance and snap exactly
+        if ((transform.position - targetPosition).sqrMagnitude < 0.0000001f)
+        {
+            transform.position = targetPosition; // exact, no leftover error
             IsMoving = false;
+        }
     }
 
     private Vector3 SnapToGrid(Vector3 pos)
     {
         return new Vector3(
-            Mathf.Round(pos.x / tileSize) * tileSize,
-            Mathf.Round(pos.y / tileSize) * tileSize,
+            Mathf.Floor(pos.x / tileSize) * tileSize + tileSize * 0.5f,
+            Mathf.Floor(pos.y / tileSize) * tileSize + tileSize * 0.5f,
             pos.z
         );
     }
+
+    private void TryInteract()
+    {
+        Vector3 front = SnapToGrid(transform.position + (Vector3)(FacingDirection * tileSize));
+        Collider2D hit = Physics2D.OverlapBox(front, Vector2.one * tileSize * 0.5f, 0f, interactableLayer);
+
+        if (hit != null && hit.TryGetComponent(out IInteractable interactable))
+            interactable.Interact();
+    }
+
+  
 }
