@@ -38,6 +38,9 @@ public class PlayerController : MonoBehaviour, IGridTrailable
     [SerializeField] private LayerMask interactableLayer;
     private IInteractable currentInteractable;
 
+    [SerializeField] private GameObject Inventory;
+    private bool InventoryOpen;
+
     public List<Vector3> TileHistory { get; } = new List<Vector3>();
     public bool IsMoving { get; private set; }
     public Vector2 FacingDirection { get; private set; } = Vector2.down;
@@ -83,7 +86,16 @@ public class PlayerController : MonoBehaviour, IGridTrailable
                 currentInteractable.Interact();
             else
             {
-                // open inventory
+                if (InventoryOpen)
+                {
+                    Inventory.SetActive(false);
+                    InventoryOpen = false;
+                }
+                else
+                {
+                    Inventory.SetActive(true);
+                    InventoryOpen = true;
+                }
             }
         }
     }
