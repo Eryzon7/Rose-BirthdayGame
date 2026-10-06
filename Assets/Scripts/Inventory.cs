@@ -8,11 +8,13 @@ public class Inventory : MonoBehaviour
 {
     public ItemData[] InventorySlots = new ItemData[16];
     public UnityEngine.UI.Image[] InventorySlotsUI = new UnityEngine.UI.Image[16];
-    public GameObject PopUpConsumable;
+
     [SerializeField] private RectTransform canvasTransform;
     [SerializeField] private Canvas canvas;
 
-    private GameObject currentPopup;
+    [SerializeField] private ItemPopup popup; // the scene object
+
+    private ItemPopup currentPopup;
 
 
 
@@ -30,45 +32,19 @@ public class Inventory : MonoBehaviour
                 return true;
             }
         }
-
+        
         Debug.Log("Inventory full");
         return false; // nothing was added
     }
 
-    private void ShowPopupAtMouse(GameObject prefab)
-    {
-        if (currentPopup != null) Destroy(currentPopup);
 
-        currentPopup = Instantiate(prefab, canvasTransform);
-        RectTransform popupRect = currentPopup.GetComponent<RectTransform>();
-
-        Camera cam = canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera;
-        Vector2 mousePos = Mouse.current.position.ReadValue();
-
-        RectTransformUtility.ScreenPointToWorldPointInRectangle(
-            canvasTransform, mousePos, cam, out Vector3 worldPoint);
-
-        popupRect.pivot = new Vector2(0f, 1f);   // top-left corner sits on the cursor
-        
-
-        popupRect.position = worldPoint; // anchors no longer matter
-        popupRect.SetAsLastSibling();
-    }
     public void SelectItem(int slotNumber)
     {
-        Console.WriteLine("buttonWorks");
+        Console.WriteLine("1");
         ItemData data = InventorySlots[slotNumber];
         if (data == null) return;
 
-        if (data is EquipableData)
-        {
-            // show: Equip - Info - Cancel
-        }
-        else if (data is ConsumableData)
-        {
-            ShowPopupAtMouse(PopUpConsumable);
-
-        }
+        popup.Show(slotNumber, data);
     }
 
     public void UseSlot(int slotNumber)

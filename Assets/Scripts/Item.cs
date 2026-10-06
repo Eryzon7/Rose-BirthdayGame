@@ -7,6 +7,9 @@ public class Item : MonoBehaviour, IInteractable
 
     void Awake()
     {
+        if (Inventory == null)
+            Inventory = FindAnyObjectByType<Inventory>();
+
         if (Data != null && TryGetComponent(out SpriteRenderer sr))
             sr.sprite = Data.icon;
     }
