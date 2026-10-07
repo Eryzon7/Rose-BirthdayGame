@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour, IGridTrailable
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (!IsMoving && currentInteractable != null)
-                currentInteractable.Interact();
+                currentInteractable.Interact(FacingDirection);
             else
             {
                 if (InventoryOpen)
@@ -136,8 +136,6 @@ public class PlayerController : MonoBehaviour, IGridTrailable
     {
         if (IsMoving)
             StepMove();
-        if (Input.GetKeyDown(KeyCode.E))
-            TryInteract();
     }
 
     private void ReadInput()
@@ -237,15 +235,6 @@ public class PlayerController : MonoBehaviour, IGridTrailable
             Mathf.Floor(pos.y / tileSize) * tileSize + tileSize * 0.5f,
             pos.z
         );
-    }
-
-    private void TryInteract()
-    {
-        Vector3 front = SnapToGrid(transform.position + (Vector3)(FacingDirection * tileSize));
-        Collider2D hit = Physics2D.OverlapBox(front, Vector2.one * tileSize * 0.5f, 0f, interactableLayer);
-
-        if (hit != null && hit.TryGetComponent(out IInteractable interactable))
-            interactable.Interact();
     }
 
 

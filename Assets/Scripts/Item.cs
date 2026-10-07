@@ -14,7 +14,7 @@ public class Item : MonoBehaviour, IInteractable
             sr.sprite = Data.icon;
     }
 
-    public void Interact()
+    public void Interact(Vector2 facing)
     {
         Inventory.SlotInItem(Data);
         Destroy(gameObject);
