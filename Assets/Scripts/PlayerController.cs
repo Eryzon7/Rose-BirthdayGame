@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 /// <summary>
 /// Interface implemented by anything that can be "followed" in a trail
@@ -30,6 +31,13 @@ public class PlayerController : MonoBehaviour, IGridTrailable
     [SerializeField] private LayerMask obstacleLayer;
     //[SerializeField] private float obstacleCheckRadius = 0.4f;
 
+    [Header("Tilemap Checks (optional)")]
+    [SerializeField] private bool checkTilemaps = true;
+    [Tooltip("If assigned, the player can ONLY walk onto cells that have a tile here (e.g. your floor/ground tilemap). Leave empty to skip this check.")]
+    [SerializeField] private Tilemap walkableTilemap;
+    [Tooltip("The player can NOT walk onto cells that have a tile on any of these (e.g. walls, water, trees).")]
+    [SerializeField] private Tilemap[] blockingTilemaps;
+
     [Header("Trail History")]
     [Tooltip("How many past tiles to remember. Needs to be at least as many as you have followers.")]
     [SerializeField] private int maxHistoryLength = 4;
@@ -51,6 +59,7 @@ public class PlayerController : MonoBehaviour, IGridTrailable
     private ContactFilter2D obstacleFilter;
     private readonly Collider2D[] obstacleHits = new Collider2D[4];
 
+
     void Awake()
     {
         obstacleFilter = new ContactFilter2D();
@@ -71,7 +80,7 @@ public class PlayerController : MonoBehaviour, IGridTrailable
 
     void Update()
     {
-        if (!IsMoving)
+        if (!IsMoving && !InventoryOpen)
         {
             ReadInput();
             if (pendingInput != Vector2.zero)
@@ -90,11 +99,13 @@ public class PlayerController : MonoBehaviour, IGridTrailable
                 {
                     Inventory.SetActive(false);
                     InventoryOpen = false;
+
                 }
                 else
                 {
                     Inventory.SetActive(true);
                     InventoryOpen = true;
+
                 }
             }
         }
@@ -151,6 +162,10 @@ public class PlayerController : MonoBehaviour, IGridTrailable
         Vector3 start = SnapToGrid(transform.position);
         Vector3 destination = SnapToGrid(start + (Vector3)(direction * tileSize));
 
+        // Tilemap data check: is there floor here / is there a wall tile here?
+        if (checkTilemaps && !IsTileWalkable(destination))
+            return;
+
         if (checkObstacles)
         {
             int count = Physics2D.OverlapBox(
@@ -169,6 +184,37 @@ public class PlayerController : MonoBehaviour, IGridTrailable
 
         targetPosition = destination;
         IsMoving = true;
+    }
+
+    /// <summary>
+    /// Returns true if the cell at this world position is allowed to be walked on,
+    /// based purely on tilemap contents (no physics needed).
+    /// </summary>
+    private bool IsTileWalkable(Vector3 worldPos)
+    {
+        // Must have a floor tile (if a walkable tilemap is assigned)
+        if (walkableTilemap != null)
+        {
+            Vector3Int cell = walkableTilemap.WorldToCell(worldPos);
+            if (!walkableTilemap.HasTile(cell))
+                return false;
+        }
+
+        // Must NOT have a tile on any blocking tilemap
+        if (blockingTilemaps != null)
+        {
+            for (int i = 0; i < blockingTilemaps.Length; i++)
+            {
+                Tilemap map = blockingTilemaps[i];
+                if (map == null) continue;
+
+                Vector3Int cell = map.WorldToCell(worldPos);
+                if (map.HasTile(cell))
+                    return false;
+            }
+        }
+
+        return true;
     }
 
     private void StepMove()
@@ -202,5 +248,5 @@ public class PlayerController : MonoBehaviour, IGridTrailable
             interactable.Interact();
     }
 
-  
+
 }

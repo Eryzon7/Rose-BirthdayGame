@@ -14,10 +14,6 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] private ItemPopup popup; // the scene object
 
-    private ItemPopup currentPopup;
-
-
-
     [SerializeField] private GameObject player; // who "uses" the items
 
     public bool SlotInItem(ItemData data)
