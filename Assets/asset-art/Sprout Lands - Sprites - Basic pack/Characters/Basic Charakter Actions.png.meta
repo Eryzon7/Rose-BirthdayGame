@@ -133,7 +133,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -147,7 +147,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -199,12 +199,12 @@ TextureImporter:
       name: Basic Charakter Actions_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 543
-        width: 16
-        height: 27
+        x: 17
+        y: 544
+        width: 14
+        height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -221,12 +221,12 @@ TextureImporter:
       name: Basic Charakter Actions_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 540
-        width: 16
-        height: 24
+        x: 65
+        y: 541
+        width: 14
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -243,12 +243,12 @@ TextureImporter:
       name: Basic Charakter Actions_2
       rect:
         serializedVersion: 2
-        x: 16
-        y: 495
-        width: 16
-        height: 27
+        x: 17
+        y: 496
+        width: 14
+        height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -265,12 +265,12 @@ TextureImporter:
       name: Basic Charakter Actions_3
       rect:
         serializedVersion: 2
-        x: 64
-        y: 497
-        width: 16
-        height: 20
+        x: 65
+        y: 498
+        width: 14
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -287,12 +287,12 @@ TextureImporter:
       name: Basic Charakter Actions_4
       rect:
         serializedVersion: 2
-        x: 18
-        y: 447
-        width: 16
-        height: 26
+        x: 19
+        y: 448
+        width: 14
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -309,12 +309,12 @@ TextureImporter:
       name: Basic Charakter Actions_5
       rect:
         serializedVersion: 2
-        x: 59
-        y: 446
-        width: 20
-        height: 19
+        x: 60
+        y: 447
+        width: 18
+        height: 17
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -331,12 +331,12 @@ TextureImporter:
       name: Basic Charakter Actions_6
       rect:
         serializedVersion: 2
-        x: 14
-        y: 399
-        width: 16
-        height: 26
+        x: 15
+        y: 400
+        width: 14
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -353,12 +353,12 @@ TextureImporter:
       name: Basic Charakter Actions_7
       rect:
         serializedVersion: 2
-        x: 65
-        y: 398
-        width: 20
-        height: 19
+        x: 66
+        y: 399
+        width: 18
+        height: 17
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -375,12 +375,12 @@ TextureImporter:
       name: Basic Charakter Actions_8
       rect:
         serializedVersion: 2
-        x: 9
-        y: 352
-        width: 23
-        height: 20
+        x: 10
+        y: 353
+        width: 21
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -397,12 +397,12 @@ TextureImporter:
       name: Basic Charakter Actions_9
       rect:
         serializedVersion: 2
-        x: 63
-        y: 346
-        width: 17
-        height: 24
+        x: 64
+        y: 347
+        width: 15
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -419,12 +419,12 @@ TextureImporter:
       name: Basic Charakter Actions_10
       rect:
         serializedVersion: 2
-        x: 16
-        y: 302
-        width: 16
-        height: 18
+        x: 17
+        y: 303
+        width: 14
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -441,12 +441,12 @@ TextureImporter:
       name: Basic Charakter Actions_11
       rect:
         serializedVersion: 2
-        x: 28
-        y: 297
-        width: 12
-        height: 11
+        x: 29
+        y: 298
+        width: 10
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -463,12 +463,12 @@ TextureImporter:
       name: Basic Charakter Actions_12
       rect:
         serializedVersion: 2
-        x: 64
-        y: 303
-        width: 16
-        height: 25
+        x: 65
+        y: 304
+        width: 14
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -485,12 +485,12 @@ TextureImporter:
       name: Basic Charakter Actions_13
       rect:
         serializedVersion: 2
-        x: 19
-        y: 255
-        width: 12
-        height: 18
+        x: 20
+        y: 256
+        width: 10
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -507,12 +507,12 @@ TextureImporter:
       name: Basic Charakter Actions_14
       rect:
         serializedVersion: 2
-        x: 29
-        y: 258
-        width: 11
-        height: 12
+        x: 30
+        y: 259
+        width: 9
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -529,12 +529,12 @@ TextureImporter:
       name: Basic Charakter Actions_15
       rect:
         serializedVersion: 2
-        x: 59
-        y: 254
-        width: 13
-        height: 8
+        x: 60
+        y: 255
+        width: 11
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -551,12 +551,12 @@ TextureImporter:
       name: Basic Charakter Actions_16
       rect:
         serializedVersion: 2
-        x: 71
-        y: 256
-        width: 12
-        height: 18
+        x: 72
+        y: 257
+        width: 10
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -573,12 +573,12 @@ TextureImporter:
       name: Basic Charakter Actions_17
       rect:
         serializedVersion: 2
-        x: 8
-        y: 210
-        width: 11
-        height: 12
+        x: 9
+        y: 211
+        width: 9
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -595,12 +595,12 @@ TextureImporter:
       name: Basic Charakter Actions_18
       rect:
         serializedVersion: 2
-        x: 17
-        y: 207
-        width: 12
-        height: 18
+        x: 18
+        y: 208
+        width: 10
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -617,12 +617,12 @@ TextureImporter:
       name: Basic Charakter Actions_19
       rect:
         serializedVersion: 2
-        x: 61
-        y: 208
-        width: 12
-        height: 18
+        x: 62
+        y: 209
+        width: 10
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -639,12 +639,12 @@ TextureImporter:
       name: Basic Charakter Actions_20
       rect:
         serializedVersion: 2
-        x: 72
-        y: 206
-        width: 13
-        height: 8
+        x: 73
+        y: 207
+        width: 11
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -661,12 +661,12 @@ TextureImporter:
       name: Basic Charakter Actions_21
       rect:
         serializedVersion: 2
-        x: 14
-        y: 157
-        width: 18
-        height: 19
+        x: 15
+        y: 158
+        width: 16
+        height: 17
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -683,12 +683,12 @@ TextureImporter:
       name: Basic Charakter Actions_22
       rect:
         serializedVersion: 2
-        x: 62
-        y: 159
-        width: 18
-        height: 20
+        x: 63
+        y: 160
+        width: 16
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -705,12 +705,12 @@ TextureImporter:
       name: Basic Charakter Actions_23
       rect:
         serializedVersion: 2
-        x: 16
-        y: 111
-        width: 18
-        height: 16
+        x: 17
+        y: 112
+        width: 16
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -727,12 +727,12 @@ TextureImporter:
       name: Basic Charakter Actions_24
       rect:
         serializedVersion: 2
-        x: 64
-        y: 111
-        width: 18
-        height: 23
+        x: 65
+        y: 112
+        width: 16
+        height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -749,12 +749,12 @@ TextureImporter:
       name: Basic Charakter Actions_25
       rect:
         serializedVersion: 2
-        x: 2
-        y: 63
-        width: 18
-        height: 9
+        x: 3
+        y: 64
+        width: 16
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -771,12 +771,12 @@ TextureImporter:
       name: Basic Charakter Actions_26
       rect:
         serializedVersion: 2
-        x: 18
-        y: 63
-        width: 13
-        height: 16
+        x: 19
+        y: 64
+        width: 11
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -793,12 +793,12 @@ TextureImporter:
       name: Basic Charakter Actions_27
       rect:
         serializedVersion: 2
-        x: 50
-        y: 69
-        width: 17
-        height: 12
+        x: 51
+        y: 70
+        width: 15
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -815,12 +815,12 @@ TextureImporter:
       name: Basic Charakter Actions_28
       rect:
         serializedVersion: 2
-        x: 66
-        y: 63
-        width: 12
-        height: 20
+        x: 67
+        y: 64
+        width: 10
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -837,12 +837,12 @@ TextureImporter:
       name: Basic Charakter Actions_29
       rect:
         serializedVersion: 2
-        x: 17
-        y: 15
-        width: 13
-        height: 16
+        x: 18
+        y: 16
+        width: 11
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -859,12 +859,12 @@ TextureImporter:
       name: Basic Charakter Actions_30
       rect:
         serializedVersion: 2
-        x: 28
-        y: 15
-        width: 18
-        height: 9
+        x: 29
+        y: 16
+        width: 16
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -881,12 +881,12 @@ TextureImporter:
       name: Basic Charakter Actions_31
       rect:
         serializedVersion: 2
-        x: 66
-        y: 15
-        width: 12
-        height: 20
+        x: 67
+        y: 16
+        width: 10
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -903,12 +903,12 @@ TextureImporter:
       name: Basic Charakter Actions_32
       rect:
         serializedVersion: 2
-        x: 77
-        y: 21
-        width: 17
-        height: 12
+        x: 78
+        y: 22
+        width: 15
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -925,7 +925,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c0d99a3383cd8d041a0fd9fa8d87d8f2
     internalID: 0
     vertices: []
     indices: 
@@ -933,7 +933,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceOnImport
+        value: False
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Basic Charakter Actions_0: 8607240835638418105
       Basic Charakter Actions_1: 4825233689777840938
