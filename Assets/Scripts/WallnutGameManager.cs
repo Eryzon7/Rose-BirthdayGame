@@ -1,26 +1,53 @@
 using UnityEngine;
 
-public enum GameState
-{
-    Paused,
-    Playing,
-    GameOver
-
-}
-
 public class WallnutGameManager : MonoBehaviour
 {
-  
-    [SerializeField]
+    private bool isPlaying = false;
+    private int points = 0;
 
-    private void GameState(enum GameState)
+    [SerializeField] WallnutSpawner wallnutSpawner;
+    
+
+
+    private void OnEnable()
     {
-        switch()
-            case Paused:
-            break;
-            case Playing:
-            break;
-            case GameOver:
-            break;
+        wallnutSpawner.roller.OnBreak += keepScore;
     }
+
+    private void OnDisable()
+    {
+        wallnutSpawner.roller.OnBreak -= keepScore;
+    }
+
+    private void Update()
+    {
+        if (!isPlaying && Input.GetKeyDown(KeyCode.Space))
+        {
+            StartGame();
+        }
+        if (isPlaying && points >= 10)
+        {
+            WinGame();
+        }
+    }
+    void StartGame()
+    {
+        isPlaying = true;
+        StartCoroutine(wallnutSpawner.SpawnLoop());
+    }
+
+    void keepScore()
+    {
+        points++;
+    }
+
+    void WinGame()
+    {
+        StopCoroutine(wallnutSpawner.SpawnLoop());
+    }
+
+
+
+
+
 }

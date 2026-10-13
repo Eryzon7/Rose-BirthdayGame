@@ -9,14 +9,11 @@ public class WallnutSpawner : MonoBehaviour
     public GameObject wallnutPrefab;
     public float delayAfterDestroyed = 0.5f;
 
-    GameObject current;
+    public Wallnut roller;
 
-    void Start()
-    {
-        StartCoroutine(SpawnLoop());
-    }
+    public GameObject current;
 
-    IEnumerator SpawnLoop()
+    public IEnumerator SpawnLoop()
     {
         while (true)
         {
@@ -36,7 +33,7 @@ public class WallnutSpawner : MonoBehaviour
 
         current = Instantiate(wallnutPrefab, point.position, Quaternion.identity);
 
-        Wallnut roller = current.GetComponent<Wallnut>();
+        roller = current.GetComponent<Wallnut>();
         roller.randomDirection = false;
         roller.direction = spawnLeft ? 1 : -1;   // left point rolls right, right point rolls left
     }

@@ -12,6 +12,8 @@ public class Wallnut : MonoBehaviour
 
     Rigidbody2D rb;
 
+    public event Action OnBreak;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -35,6 +37,7 @@ public class Wallnut : MonoBehaviour
 
     public void Break()
     {
+        OnBreak?.Invoke();
         /*if (brokenPrefab != null)
             Instantiate(brokenPrefab, transform.position, transform.rotation);
 
