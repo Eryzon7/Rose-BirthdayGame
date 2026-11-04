@@ -5,7 +5,9 @@ public class Chest : MonoBehaviour, IInteractable
 {
 
     [SerializeField] private GameObject InteractionText;
-    [SerializeField] private GameObject Item;
+    [SerializeField] private Item item;
+    [SerializeField] private Inventory inventory;
+
 
 
     public void SetPromptVisible(bool visible)
@@ -15,6 +17,7 @@ public class Chest : MonoBehaviour, IInteractable
 
     public void Interact(Vector2 facing)
     {
+        inventory.SlotInItem(item.Data);
         Debug.Log("give item");
        //give item
     }

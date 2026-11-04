@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ede6daf6eb04c241883e629fd881c83, type: 3}
+  m_Name: New Equipable Data
+  m_EditorClassIdentifier: Assembly-CSharp::EquipableData
+  itemName: Axe
+  icon: {fileID: -1057921988299516155, guid: 8afcfd476c12a304ebf6e2913c71f891, type: 3}
+  description: AXE!!!!!!!!!!!
+  slot: 2
+  attackBonus: 5
+  defenseBonus: 0
