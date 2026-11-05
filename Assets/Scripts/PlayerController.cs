@@ -91,25 +91,26 @@ public class PlayerController : MonoBehaviour, IGridTrailable
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (!IsMoving && currentInteractable != null)
-                currentInteractable.Interact(FacingDirection);
+            if (InventoryOpen)
+            {
+                Inventory.SetActive(false);
+                InventoryOpen = false;
+
+            }
             else
             {
-                if (InventoryOpen)
-                {
-                    Inventory.SetActive(false);
-                    InventoryOpen = false;
+                Inventory.SetActive(true);
+                InventoryOpen = true;
 
-                }
-                else
-                {
-                    Inventory.SetActive(true);
-                    InventoryOpen = true;
-
-                }
             }
         }
-    }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (!IsMoving && currentInteractable != null)
+                currentInteractable.Interact(FacingDirection);
+        }
+    }        
+        
 
     private void UpdateInteractable()
     {

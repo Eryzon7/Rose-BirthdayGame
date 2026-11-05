@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55513136c9c79674f879dd9eb42ca4c3, type: 3}
-  m_Name: New Consumable Data
+  m_Name: milk
   m_EditorClassIdentifier: Assembly-CSharp::ConsumableData
-  itemName: berry
-  icon: {fileID: -386788524301670192, guid: 74d6d9c576075ab489681294baf79e39, type: 3}
-  description: berry heals 1 on consumption
+  itemName: Milk
+  icon: {fileID: -2449982667496561888, guid: 727396975d8368a4c921562e21d67645, type: 3}
+  description: fresh milk from a cow
   healAmount: 1

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ede6daf6eb04c241883e629fd881c83, type: 3}
-  m_Name: New Equipable Data
+  m_Name: empty bottle
   m_EditorClassIdentifier: Assembly-CSharp::EquipableData
-  itemName: Axe
-  icon: {fileID: -1057921988299516155, guid: 8afcfd476c12a304ebf6e2913c71f891, type: 3}
-  description: AXE!!!!!!!!!!!
-  slot: 2
-  attackBonus: 5
+  itemName: Empty Bottle
+  icon: {fileID: 2948254225124216898, guid: 727396975d8368a4c921562e21d67645, type: 3}
+  description: an empty bottle
+  slot: 3
+  attackBonus: 0
   defenseBonus: 0

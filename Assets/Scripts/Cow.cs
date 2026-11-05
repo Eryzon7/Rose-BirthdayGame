@@ -18,6 +18,8 @@ public class Cow : MonoBehaviour, IInteractable
     [SerializeField] private int roamRadius = 5;
 
     [SerializeField] private Inventory inventory;
+    [SerializeField] private Item Milk;
+    [SerializeField] private GameObject InteractionText;
 
     private SpriteRenderer spriteRenderer;
 
@@ -119,10 +121,10 @@ public class Cow : MonoBehaviour, IInteractable
 
     public void Interact(Vector2 facing)
     {
-        inventory
+        inventory.SlotInItem(Milk.Data);
     }
     public void SetPromptVisible(bool visible)
     {
-
+        InteractionText.SetActive(visible);
     }
 }
