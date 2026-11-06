@@ -8,6 +8,8 @@ public class Chest : MonoBehaviour, IInteractable
     [SerializeField] private Item item;
     [SerializeField] private Inventory inventory;
     [SerializeField] private string clip = "";
+    [SerializeField] private DialogueManager manager;
+    [SerializeField] private DialogueData dialogue;
 
 
 
@@ -22,6 +24,7 @@ public class Chest : MonoBehaviour, IInteractable
         animator.Play(clip);
         inventory.SlotInItem(item.Data);
         Debug.Log("give item");
+        manager.StartDialogue(dialogue);
         this.gameObject.SetActive(false);   
        //give item
     }

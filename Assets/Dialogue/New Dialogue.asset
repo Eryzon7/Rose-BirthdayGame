@@ -15,11 +15,13 @@ MonoBehaviour:
   lines:
   - characterName: Ruben
     characterIcon: {fileID: -7278315255890836485, guid: 423eb5c040b10d54abd6b98ae3ab9f46, type: 3}
-    text: 'Hello, how are you doing?
+    text: 'Hi Rose, happy birthday
 
 '
-  - characterName: Rose
-    characterIcon: {fileID: -2106967988330522069, guid: 0927d0928f684b04a8b08440fa2f34d6, type: 3}
-    text: 'Hello, im doing good
-
-'
+  - characterName: Ruben
+    characterIcon: {fileID: -7278315255890836485, guid: 423eb5c040b10d54abd6b98ae3ab9f46, type: 3}
+    text: I thought we could make brownies for your birthday but i'm missing alot
+      of things.
+  - characterName: Ruben
+    characterIcon: {fileID: -7278315255890836485, guid: 423eb5c040b10d54abd6b98ae3ab9f46, type: 3}
+    text: we will need wallnuts, milk, eggs and flower

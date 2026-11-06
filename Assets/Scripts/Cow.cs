@@ -121,10 +121,29 @@ public class Cow : MonoBehaviour, IInteractable
 
     public void Interact(Vector2 facing)
     {
-        inventory.SlotInItem(Milk.Data);
+        if (!HasEmptyBottle()) return;
+
+        if (inventory.RemoveItem("Empty Bottle"))
+            inventory.SlotInItem(Milk.Data);
     }
+
     public void SetPromptVisible(bool visible)
     {
-        InteractionText.SetActive(visible);
+        if (InteractionText == null) return;
+
+        bool show = visible && HasEmptyBottle();
+        InteractionText.SetActive(show);
+    }
+
+    private bool HasEmptyBottle()
+    {
+        if (inventory == null) return false;
+
+        foreach (ItemData item in inventory.InventorySlots)
+        {
+            if (item != null && item.itemName == "Empty Bottle")
+                return true;
+        }
+        return false;
     }
 }

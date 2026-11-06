@@ -74,5 +74,20 @@ public class Inventory : MonoBehaviour
 
         img.sprite = data != null ? data.icon : null;
         img.enabled = data != null; // hide empty slots
-    }    
+    }
+
+    public bool RemoveItem(string itemName)
+    {
+        for (int i = 0; i < InventorySlots.Length; i++)
+        {
+            if (InventorySlots[i] != null && InventorySlots[i].itemName == itemName)
+            {
+                InventorySlots[i] = null; // or whatever your "empty slot" value is
+                InventoryUIUpdate(i);                      // refresh UI here
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
